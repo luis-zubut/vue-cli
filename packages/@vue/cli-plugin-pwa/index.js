@@ -33,7 +33,7 @@ module.exports = (api, options) => {
         .after('html')
 
     // generate /service-worker.js in production mode
-    if (process.env.NODE_ENV === 'production') {
+    if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging') {
       // Default to GenerateSW mode, though InjectManifest also might be used.
       const workboxPluginMode = userOptions.workboxPluginMode || 'GenerateSW'
       const workboxWebpackModule = require('workbox-webpack-plugin')
